@@ -9,18 +9,15 @@ body{
     background:#fff5f7;
     padding:40px;
     color:#333;
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
 }
 
-.heading{
-    text-align:center;
-    font-size:42px;
-    font-weight:700;
-    color:#c2185b;
-    margin-bottom:45px;
-    letter-spacing:1px;
-}
+/* ================= PRODUCTS ================= */
 
 .container{
+    width:75%;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:35px;
@@ -81,6 +78,60 @@ body{
     margin-bottom:18px;
 }
 
+/* ================= CART ================= */
+
+.cart{
+    width:25%;
+    background:#ffffff;
+    border-radius:18px;
+    padding:20px;
+    border:1px solid #ffd6e3;
+    box-shadow:0 10px 25px rgba(194,24,91,.08);
+    position:sticky;
+    top:20px;
+    height:90vh;
+    overflow-y:auto;
+}
+
+.cart::before{
+    content:"🛒 Shopping Cart";
+    display:block;
+    font-size:24px;
+    font-weight:700;
+    color:#d81b60;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.cart div{
+    background:#fff7fa;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.cart img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:10px;
+}
+
+.cart h1{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.cart p{
+    font-size:18px;
+    color:#d81b60;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* ================= BUTTONS ================= */
+
 button{
     width:100%;
     padding:13px;
@@ -92,6 +143,7 @@ button{
     font-weight:600;
     cursor:pointer;
     transition:.3s;
+    margin-top:10px;
 }
 
 button:hover{
@@ -104,14 +156,22 @@ button:active{
     transform:scale(.98);
 }
 
-@media(max-width:768px){
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
 
     body{
+        flex-direction:column;
         padding:20px;
     }
 
-    .heading{
-        font-size:32px;
+    .container{
+        width:100%;
     }
 
+    .cart{
+        width:100%;
+        position:static;
+        height:auto;
+    }
 }
