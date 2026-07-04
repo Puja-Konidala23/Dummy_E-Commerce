@@ -1,0 +1,1 @@
+A responsive E-Commerce website built using HTML, CSS, and JavaScript with data fetched from the Fake Store API. This project was created to practice API integration, asynchronous JavaScript (fetch, async/await), DOM manipulation, responsive UI design, and modern frontend development concepts.
