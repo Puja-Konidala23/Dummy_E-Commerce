@@ -1,17 +1,19 @@
  let box=document.querySelector(".container");
+ let allpros=[];
  async function display()
 {
     try{
     let container=await fetch('https://fakestoreapi.com/products');
     let products=await container.json();
+    allpros=products;
     products.forEach((product)=>box.innerHTML+=`<div>  
     <img src=" ${product.image}" alt="${product.title}">
     <h1> Product:${product.title}</h1>
     <p>Price:${product.price}</p>
     <p>${product.description}</p>
-    <button onclick="add()">Add to cart</button>
+    <button  onclick="add(${product.id})">Add to cart</button>
     <br><br>
-    <button onclick="buy"> Buy now</button>
+    <button  onclick="buy()"> Buy now</button>
     </div>`);
     }
     catch(error)
@@ -22,11 +24,26 @@
 
 }
 display();
-function add()
+function add(id)
 {
-    alert("item added to cart");
+     let product = allpros.find(p => p.id === id);
+    cart.innerHTML+=`<div>
+    <img src=" ${product.image}" alt="${product.title}">
+    <h1> Product:${product.title}</h1>
+    <p>Price:${product.price}</p>
+    <p>${product.description}</p>
+    <button  onclick="remove(this)">Remove from cart</button>
+    <br>
+    <br>
+    <button>Buy now</button>
+    </div>`
 }
 function buy()
 {
     alert("Payment Pending");
+}
+let cart=document.querySelector(".cart");
+function remove(button)
+{
+    button.parentElement.remove();
 }
